@@ -7,7 +7,7 @@ class TodoModel{
   TodoModel({
     required this.title,
     required this.description,
-    this.status,
+    this.status=TodoStatus.idle,
   });
 }
 enum TodoStatus{idle,inProgress,done}

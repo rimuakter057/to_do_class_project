@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_class_project/models/todo_model.dart';
 
 class AddTodoScreen extends StatefulWidget {
   const AddTodoScreen({super.key});
@@ -63,7 +64,9 @@ class _AddTodoScreenState extends State<AddTodoScreen> {
                   width: MediaQuery.sizeOf(context).width,
                   child: ElevatedButton(onPressed: (){
                     if(_formKey.currentState!.validate()){
-                      print("success");
+                       TodoModel todoModel = TodoModel(title: _titleController.text.trim(),
+                           description: _descriptionController.text.trim());
+                       Navigator.pop(context,todoModel);
                     }else{
                       print("something is wrong");
                     }
